@@ -14,6 +14,12 @@
     box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 body {
     height: 100%;
     scroll-behavior: smooth;
@@ -619,4 +625,233 @@ section{
     color: #ffffff;
     text-align: center;
     padding-bottom: 15px;
+}   
+
+/* Responsive layout updates */
+@media (max-width: 1200px) {
+  #intro h1 {
+    font-size: 48px;
+  }
+  #intro p {
+    font-size: 20px;
+  }
+  #work .trabalho {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  #work .card {
+    margin: 10px;
+  }
+  #services table {
+    width: 70%;
+  }
+  #product .pro {
+    width: 90%;
+  }
+  #types .card-container {
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto;
+    gap: 16px;
+  }
+  #types .card {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 992px) {
+  section {
+    overflow: visible;
+    padding: 80px 24px;
+  }
+  #intro,
+  #about,
+  #work,
+  #services,
+  #product,
+  #types,
+  #extra,
+  #contact {
+    height: auto;
+    min-height: 100vh;
+  }
+  #intro .navbar {
+    width: 90%;
+    padding: 10px 16px;
+  }
+  #intro .navbar-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  #intro .nav-item {
+    padding: 8px 10px;
+  }
+  #intro img {
+    width: 180px;
+    height: 180px;
+  }
+  #about p,
+  #services p,
+  #product p,
+  #types p,
+  #extra .service p,
+  #contact .text {
+    max-width: 100%;
+  }
+  #services table {
+    width: 90%;
+  }
+  #extra .service {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 70px 20px;
+  }
+  #intro h1 {
+    font-size: 36px;
+  }
+  #intro p {
+    font-size: 18px;
+  }
+  #intro img {
+    width: 150px;
+    height: 150px;
+  }
+  #intro .btn {
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+  #work .trabalho {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  #work .card {
+    width: 90%;
+    max-width: 320px;
+  }
+  #services table {
+    width: 100%;
+  }
+  #services th,
+  #services td {
+    font-size: 14px;
+  }
+  #product .pro {
+    width: 100%;
+    padding: 20px;
+  }
+  #types .card-container {
+    max-width: 520px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+  #types .card {
+    width: 100%;
+    max-width: 220px;
+    height: 260px;
+  }
+  #types .card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+  }
+  #extra .service {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 18px;
+    padding: 24px;
+  }
+  #extra .service img {
+    width: 60%;
+    max-width: 220px;
+  }
+  #extra .service h3,
+  #extra .service p {
+    margin-top: 8px;
+  }
+  #contact .text {
+    width: 100%;
+    font-size: 16px;
+    padding: 0 10px;
+  }
+  #contact .social-media {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    padding: 60px 16px;
+  }
+  #intro .navbar {
+    position: static;
+    transform: none;
+    margin: 0 0 24px;
+    width: 100%;
+    border-radius: 20px;
+  }
+  #intro .navbar-list {
+    flex-direction: column;
+    gap: 8px;
+  }
+  #intro .nav-item {
+    width: 100%;
+    justify-content: center;
+  }
+  #intro h1 {
+    font-size: 30px;
+  }
+  #intro p {
+    font-size: 16px;
+  }
+  #intro img {
+    width: 130px;
+    height: 130px;
+  }
+  #intro .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  #services th,
+  #services td {
+    font-size: 13px;
+  }
+  #types h2 {
+    font-size: 32px;
+  }
+  #types .card-container {
+    max-width: 320px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  #types .card {
+    max-width: 280px;
+    height: 240px;
+    margin: 0 auto;
+  }
+  #types .card-back p {
+    max-width: 220px;
+  }
+  #extra .service img {
+    width: 100%;
+    max-width: 200px;
+  }
+  #contact h2 {
+    font-size: 32px;
+  }
+  #contact i {
+    font-size: 32px;
+  }
+  #contact .text {
+    font-size: 15px;
+  }
 }
