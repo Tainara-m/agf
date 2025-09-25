@@ -1,0 +1,622 @@
+@font-face {
+    font-family: 'aston';
+    src: url(assets/Aston\ Script.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'creato';
+    src: url(assets/CreatoDisplay-Medium.otf) format('opentype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+section{
+    width: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 60px;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(50px); /* começa deslocado para baixo */
+  transition: all 0.8s ease-out;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0); /* volta para posição normal */
+}
+
+#intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    position: relative; /* Necessário para o posicionamento do pseudoelemento */
+    z-index: 0; /* Garante que o conteúdo fique acima do fundo */   
+    overflow: hidden; /* Evita que a imagem de fundo ultrapasse os limites do container */
+}
+
+#intro::before {
+    content: ""; /* Obrigatório para pseudo-elementos */
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/Adriana.jpg); /* A imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    position: absolute; /* Para cobrir todo o container */
+    top: 0;
+    left: 0;
+    opacity: 0.5; /* A opacidade da imagem */
+    z-index: -1; /* Fica atrás do texto */
+}
+
+#intro .container{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    z-index: 1; /* Garante que o conteúdo fique acima da imagem de fundo */
+}
+
+#intro .navbar {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: auto;
+    background: rgba(255, 255, 255, 0.363);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+#intro .nav-item {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#intro .icon {
+    font-size: 20px;
+    color: #d39a20;
+    margin-right: 5px; /* Espaço entre ícone e nome */
+}
+
+#intro .nav-name {
+    font-family: 'creato', sans-serif;
+    display: block;
+    white-space: nowrap; /* Evita quebra de linha */
+    opacity: 1;
+    transition: none;
+    }
+
+#intro .navbar:hover {
+    width: auto; /* Largura ao expandir */
+}
+
+#intro .navbar-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#intro .nav-item a {
+    text-decoration: none;
+    color: #d39a20;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+#intro .nav-item a:hover{
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+#intro img {
+    width: 200px;
+    height: 200px;
+}
+
+#intro h1 {
+    font-family: 'aston', cursive;
+    font-size: 60px;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+#intro p {
+    font-family: 'creato', sans-serif;
+    font-size: 25px;
+    color: #555;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#intro .btn {
+    font-family: 'creato', sans-serif;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 30px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #d39a20;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}   
+
+#intro .btn:hover {
+    background-color: #b27b17;
+    text-decoration: none;
+    color: #fff;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #000000, #1f1e1e, #555);
+    padding: 10px;
+    text-align: center;
+}
+
+#about img {
+    width: 250px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+#about h2 {
+    font-family: 'aston', cursive;
+    font-size: 40px;
+    color: #d39a20;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-family: 'creato', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.541);
+    max-width: 1000px;
+    line-height: 1.1;
+}
+
+#work {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-size: cover; /* Ajusta a imagem para cobrir o elemento */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+     /* A imagem começa transparente e transiciona para o verde */
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.5) 0%, /* Imagem transparente */
+      rgba(238, 167, 35, 0.7) 50% /* Cor verde */
+    ),
+    url(assets/Adriana\ -\ Copia.jpg); /* A imagem que servirá de fundo */
+    padding: 20px;
+    text-align: center;
+}
+
+#work .trabalho{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#work .card{
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    background: rgba(85, 49, 3, 0.445);
+    border-radius: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.596);
+    padding: 10px;
+    text-align: center;
+}
+
+#work .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+#work .card i {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 10px;
+    color: #63470b;
+    padding-right: 10px;
+}
+
+#work h2 {
+    margin-top: 20px;
+    font-family: 'aston', cursive;
+    font-size: 40px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+#work p {
+    font-family: 'creato', sans-serif;
+    font-size: 14px;
+    font-weight: lighter;
+    text-shadow: #000000 1px 1px 2px;
+    color: #ffffff;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+#services {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1452587925148-ce544e77e70d?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px;
+    text-align: center;
+}
+
+#services h2 {
+    font-family: 'aston', cursive;
+    font-size: 40px;
+    text-shadow: #f8a232 1px 1px 2px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#services p {
+    font-family: 'creato', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    max-width: 800px;
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+#services table{
+    width: 30%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background: linear-gradient(to top, #ffffff88, #e4952fa1); /* Exemplo de fundo gradiente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'creato', sans-serif;
+    line-height: 1.5;
+}
+
+#services th, #services td {
+    color: #333;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+
+#product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1615075650468-4e8e293d4989?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    text-align: center;
+}
+
+#product h2 {
+    font-family: 'aston', cursive;
+    font-size: 40px;
+    color: #d39a20;
+    margin-bottom: 20px;
+}
+
+#product .pro {
+    border: 2px solid #d39a20;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(85, 49, 3, 0.445);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.596);
+    width: 800px;
+    max-width: 1000px;
+}
+
+#product h3 {
+    font-family: 'creato', sans-serif;
+    font-size: 20px;
+    color: #d39a20;
+    margin-top: 15px;
+}
+
+#product p {
+    font-family: 'creato', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.541);
+    max-width: 1000px;
+    line-height: 1.1;
+}
+
+#product .price {
+    font-family: 'creato', sans-serif;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #d39a20;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+#types {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1619252584172-a83a949b6efd?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    text-align: center;
+}
+
+#types h2 {
+    font-family: 'aston', cursive;
+    font-size: 40px;
+    color: #d39a20;
+    margin-top: 20px;
+}
+
+#types p {
+    font-family: 'creato', sans-serif;
+    font-size: 15px;
+    color: #a06a07;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.541);
+    max-width: 800px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+/* Card Flip Effect */
+#types .card-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(30px, 1fr));
+  grid-template-rows: repeat(2, minmax(40px, 1fr));
+  width: 1000px;           /* aumente a largura do grid */
+  height: 1200px;          /* aumente a altura do grid */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: center;     /* centraliza verticalmente */
+  margin: 0 auto;          /* centraliza o container na página */
+  gap: 5px; /* Espaço menor entre os cards */
+}
+
+#types .card {
+  width: 100px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s; /* Animação de rotação */
+}
+
+#types .card:hover {
+  transform: rotateY(180deg); /* Vira o cartão ao passar o mouse */
+}
+
+#types .card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Garante que o verso não seja visto quando estiver na frente */
+}
+
+#types .card-front {
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#types .card-front img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain; /* Ajusta a imagem ao tamanho do card */
+  border-radius: 50px;
+}
+
+#types .card-back {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: rotateY(180deg); /* O verso começa girado */
+}
+
+#types .card-back h3 {
+  font-family: 'creato', sans-serif;
+  font-size: 16px;
+  color: #d39a20;
+  margin-bottom: 5px;
+}
+
+#types .card-back p {
+  font-family: 'creato', sans-serif;
+  font-size: 12px;
+  color: #000000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.541);
+  max-width: 150px;
+  line-height: normal;
+}
+
+#extra{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://plus.unsplash.com/premium_photo-1677622678379-115b35bf27e8?q=80&w=889&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    text-align: center;
+}
+
+#extra h2{
+    font-family: 'aston', cursive;
+    font-size: 40px;
+    color: #d39a20;
+    margin-top: 20px;
+    text-shadow: #00000094 2px 2px 2px;
+}
+
+#extra .service{
+    display: flex;
+    flex-direction: row ;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 70%;
+    height: 300px;
+    gap: 20px;
+}
+
+#extra .service img{
+    width: 150px;
+    height: 75px;
+    object-fit: contain;
+    position: left;
+
+}
+
+#extra .service h3{
+    font-family: 'creato', cursive;
+    font-size: 14px;
+    color: #271d07;
+    margin-top: 20px;
+    text-shadow: #00000094 2px 2px 2px;
+}
+
+#extra .service p{
+    font-family: 'creato', cursive;
+    font-size: 14px;
+    color: #000000;
+    margin-top: 20px;
+    text-shadow: #00000094 2px 2px 2px;
+}
+
+#contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(assets/Trabalhos5.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    text-align: center;
+}
+
+#contact h2{
+    font-family: 'aston', cursive;
+    font-size: 40px;
+    color: #d39a20;
+    margin-top: 20px;
+    text-shadow: #00000094 2px 2px 2px;
+}
+
+#contact .text{
+    width: 500px;
+    font-family: 'creato', cursive;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+#contact h4{
+    font-family: 'aston', cursive;
+    font-size: 20px;
+    color: #d39a20;
+    margin-top: 20px;
+    text-shadow: #00000094 2px 2px 2px;
+}
+
+#contact i{
+    font-size: 40px;
+    padding: 0 20px;
+    color: #d39a20;
+}
+
+#contact i:hover{
+    transform: scale(1.3);
+    color: #ffffff;
+}
+
+#texto{
+    font-family: 'creato', cursive;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    padding-bottom: 15px;
+}
